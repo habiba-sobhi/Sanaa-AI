@@ -1,0 +1,32 @@
+# Python virtual environment
+venv/
+.venv/
+ENV/
+env/
+
+# Environment variables & secrets (NEVER COMMIT)
+.env
+*.env
+!.env.example
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ruff_cache/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Local data & vector store (for future milestones)
+data/vector_store/
+data/raw_documents/*
+!data/raw_documents/.gitkeep

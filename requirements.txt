@@ -1,0 +1,15 @@
+# Web API Framework & Server
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# Data Validation & Configuration
+pydantic>=2.10.0
+pydantic-settings>=2.7.0
+python-dotenv>=1.0.1
+
+# Official Google GenAI SDK (unified package)
+google-genai>=1.0.0
+
+# Testing & HTTP Client
+httpx>=0.28.0
+pytest>=8.3.0

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صَنعة — مساعد حل المشكلة الذكي</title>
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       Top Navbar (Matching Figma)
+       ========================================================================= -->
+  <header class="navbar">
+    <div class="nav-container">
+
+      <!-- Right: Logo & Primary Nav -->
+      <div class="nav-right-group">
+        <a href="/" class="logo-link">
+          <div class="logo-badge">
+            <!-- Sana'a Craftsman Runner Emblem SVG -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <span>صَنعة</span>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#" class="active">الرئيسية</a></li>
+            <li><a href="#">حجوزاتي / منشوراتي</a></li>
+            <li><a href="#">طلب جديد</a></li>
+            <li><a href="#">الإعدادات</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Left: Search, Notifications, Avatar -->
+      <div class="nav-left-group">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="ابحث عن طلب أو عميل..." />
+        </div>
+
+        <!-- Chat Notification Icon -->
+        <button class="nav-icon-btn" title="الرسائل">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </button>
+
+        <!-- Notification Bell -->
+        <button class="nav-icon-btn" title="الإشعارات">
+          <span class="nav-badge-dot"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+
+        <!-- User Profile Avatar -->
+        <div class="user-avatar" title="الملف الشخصي">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#64748b">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Main Content Wrapper
+       ========================================================================= -->
+  <main class="main-wrapper">
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+      <a href="#">الرئيسية</a>
+      <span>/</span>
+      <span>مساعد حل المشكلة</span>
+    </div>
+
+    <!-- Page Title & Actions -->
+    <div class="page-title-row">
+      <div class="page-title-group">
+        <button class="back-btn" title="رجوع" onclick="history.back()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <h1 class="page-title">مساعد حل المشكلة</h1>
+      </div>
+
+      <button id="newChatBtn" class="new-chat-btn" title="بدء محادثة جديدة">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14"></path>
+        </svg>
+        <span>محادثة جديدة</span>
+      </button>
+    </div>
+
+    <!-- Content Grid (2 Columns: Main Chat on right, Recommendation on left in RTL) -->
+    <div class="content-grid">
+
+      <!-- Right Column: Main Chat Window -->
+      <section class="chat-card">
+
+        <!-- Chat Header -->
+        <div class="chat-card-header">
+          <div class="chat-assistant-title">
+            <div class="robot-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                <circle cx="12" cy="5" r="2"></circle>
+                <path d="M12 7v4"></path>
+                <line x1="8" y1="16" x2="8" y2="16"></line>
+                <line x1="16" y1="16" x2="16" y2="16"></line>
+              </svg>
+            </div>
+            <span>المساعد الذكي</span>
+          </div>
+
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>متصل</span>
+          </div>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div id="chatMessages" class="chat-messages">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Input Bar (Matching Figma bottom bar) -->
+        <div class="chat-input-bar">
+          <div class="input-container">
+
+            <!-- Send Button (Navy square on left in RTL) -->
+            <button id="sendBtn" class="send-btn" title="إرسال">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+
+            <!-- Text Input Field -->
+            <textarea
+              id="chatInput"
+              class="chat-input-field"
+              placeholder="اكتب رسالتك..."
+              rows="1"
+            ></textarea>
+
+            <!-- Microphone Button -->
+            <button class="input-action-btn" title="تسجيل صوتي">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </button>
+
+            <!-- Attachment Button -->
+            <button class="input-action-btn" title="إرفاق صورة أو ملف">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Left Column: Sidebar Recommendation Card (Matching Figma) -->
+      <aside class="sidebar-card">
+
+        <div class="sidebar-icon-wrap">
+          <!-- Headset Icon SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+          </svg>
+        </div>
+
+        <span id="sidebarPill" class="sidebar-pill">جرب قبل الاستعانة بفني</span>
+
+        <h2 id="sidebarTitle" class="sidebar-title">جرب بنفسك خطوات بسيطة</h2>
+
+        <p id="sidebarDesc" class="sidebar-desc">لتغيير الجوان المطاطي أو تنظيف الحنفية.</p>
+
+        <ul id="sidebarActionsList" class="sidebar-actions-list">
+          <!-- Populated dynamically -->
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <p id="sidebarFooterNote" class="sidebar-footer-note">ممكن تجرب الحلول دي بنفسك قبل ما تطلب فني.</p>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       Footer (Matching Figma)
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="footer-top">
+
+      <!-- Right: Brand & Description -->
+      <div class="footer-brand">
+        <h3>صَنعة</h3>
+        <p>المنصة الأولى في مصر لحجز خدمات الصيانة المنزلية والربط الفوري مع أمهر الحرفيين والمقاولين.</p>
+      </div>
+
+      <!-- Center: Services -->
+      <div class="footer-col">
+        <h4>الخدمات</h4>
+        <ul>
+          <li><a href="#">صيانة سباكة</a></li>
+          <li><a href="#">كهرباء وإنارة</a></li>
+          <li><a href="#">صيانة تكييف</a></li>
+          <li><a href="#">عرض الكل</a></li>
+        </ul>
+      </div>
+
+      <!-- Left: Quick Links -->
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#">عن منصة صَنعة</a></li>
+          <li><a href="#">شروط الاستخدام</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div>حقوق الطبع © ٢٠٢٦ منصة صَنعة. جميع الحقوق محفوظة.</div>
+
+        <div class="social-icons">
+          <!-- Instagram -->
+          <a href="#" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <!-- Twitter / X -->
+          <a href="#" title="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Client Logic -->
+  <script src="/app.js"></script>
+</body>
+</html>
